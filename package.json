@@ -1,0 +1,48 @@
+{
+  "name": "mozu-program",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electorn .",
+    "build": "electron-builder build --win portable --dir",
+    "deploy": "electron-builder --windows nsis:x64"
+  },
+  "build": {
+    "productName": "mozu-program",
+    "appId": "com.mozu.program",
+    "asar": false,
+    "protocols": {
+      "name": "mozu-program",
+      "schemes": [
+        "mozu_program"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "./icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./icon.ico",
+      "createDesktopShortcut": true
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1"
+  },
+  "dependencies": {}
+}
